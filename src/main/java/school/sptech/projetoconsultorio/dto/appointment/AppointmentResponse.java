@@ -1,4 +1,4 @@
-package school.sptech.projetoconsultorio.dto;
+package school.sptech.projetoconsultorio.dto.appointment;
 
 import lombok.Getter;
 import lombok.Setter;

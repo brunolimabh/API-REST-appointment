@@ -25,9 +25,4 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
     @Modifying
     @Query("UPDATE Appointment a SET a.name = :name WHERE a.id = :id")
     void updateName(int id, String name);
-
-    @Transactional
-    @Modifying
-    @Query("DELETE FROM Appointment a WHERE a.doctor.id = :id")
-    void removeByDoctor(int id);
 }

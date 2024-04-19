@@ -1,4 +1,4 @@
-package school.sptech.projetoconsultorio.dto;
+package school.sptech.projetoconsultorio.dto.appointment;
 
 import school.sptech.projetoconsultorio.entity.Appointment;
 import school.sptech.projetoconsultorio.entity.Doctor;
@@ -37,18 +37,4 @@ public class AppointmentMapper {
                 .map(AppointmentMapper::toDto)
                 .toList();
     }
-
-//
-//    public static Cliente toEntityAtt(ClienteRequestUpdateDto dto, Cliente entity){
-//        if (dto == null) return null;
-//
-//        entity.setNome(dto.getNome());
-//        entity.setEmail(dto.getEmail());
-//        entity.setSenha(dto.getSenha());
-//        entity.setCpf(dto.getCpf());
-//        entity.setTelefone(dto.getTelefone());
-//        entity.setDataNascimento(dto.getDataNascimento());
-//        return entity;
-//    }
-//
 }
