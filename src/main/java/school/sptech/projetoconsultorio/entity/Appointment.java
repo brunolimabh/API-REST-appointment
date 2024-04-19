@@ -7,17 +7,14 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Consulta {
+public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nome;
-    private LocalDate dataAgendamento;
-    private double preco;
-    private String local;
+    private String name;
+    private LocalDate dateScheduled;
+    private double price;
+    private String location;
     @ManyToOne
-    private Medico medico;
+    private Doctor doctor;
 }
