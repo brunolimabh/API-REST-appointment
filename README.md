@@ -13,11 +13,27 @@ O principal objetivo deste projeto é fornecer uma plataforma simples, mas funci
 - **Validation:** https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
 - **Lombok:** https://mvnrepository.com/artifact/org.projectlombok/lombok
 <br></br>
+
+## 📃 Valores inseridos p/ testes: 
+**Pasta:** src/main/resources/data.sql
+```sql
+INSERT INTO Doctor
+    (name, crm)
+VALUES
+    ('Dr Hanchuscrut' , '1234'),
+    ('Dr Erick' , '4321');
+
+INSERT INTO Appointment
+    (name, date_scheduled, price, location, doctor_id)
+VALUES
+    ('Pediatra', '2024-04-18', 150.0, 'Hospital Albert Einstein', 1),
+    ('Cirurgia do coração', '2024-05-10', 11150.0, 'Hospital Albert Einstein', 2);
+```
+
 ## 📃 Postman collection: 
 <p align="center">
   <img src="https://github.com/brunolimabh/api-consultorio/blob/main/imgs/postman_print.png" width="200px" height="300px" style="vertical-align: middle; margin-right:"200px";">
 </p>
-
 
 #### 🟨 Endpoint para criar consultas
 - **Método HTTP:** POST
