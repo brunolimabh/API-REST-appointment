@@ -1,5 +1,17 @@
 # API REST Consultório
 
+A API Consultório é um projeto desenvolvido como parte de uma atividade proposta pela instituição de ensino SPTech, visando fornecer uma introdução prática ao desenvolvimento de APIs REST utilizando tecnologias modernas do ecossistema Java.
+<br></br>
+O principal objetivo deste projeto é fornecer uma plataforma simples, mas funcional, para gerenciamento de consultas médicas em um consultório. Através desta API, é possível realizar diversas operações, como agendar consultas, listar consultas, atualizar informações e remover consultas do sistema.
+<br></br>
+
+## 📃 Dependências: 
+- **Spring Web:** https://mvnrepository.com/artifact/org.springframework/spring-web
+- **Spring Data JPA:** https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+- **H2 Database:** https://mvnrepository.com/artifact/com.h2database/h2
+- **Validation:** https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
+- **Lombok:** https://mvnrepository.com/artifact/org.projectlombok/lombok
+<br></br>
 ## 📃 Postman collection: 
 <p align="center">
   <img src="https://github.com/brunolimabh/api-consultorio/blob/main/imgs/postman_print.png" width="200px" height="300px" style="vertical-align: middle; margin-right:"200px";">
