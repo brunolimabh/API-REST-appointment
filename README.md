@@ -1,6 +1,7 @@
-# API REST Consultório
+# API REST Clinic
 
-A API Consultório é um projeto desenvolvido como parte de uma atividade proposta pela instituição de ensino SPTech, visando fornecer uma introdução prática ao desenvolvimento de APIs REST utilizando tecnologias modernas do ecossistema Java.
+
+A API REST Clinic é um projeto desenvolvido como parte de uma atividade proposta pela instituição de ensino SPTech, visando fornecer uma introdução prática ao desenvolvimento de APIs REST utilizando tecnologias modernas do ecossistema Java.
 <br></br>
 O principal objetivo deste projeto é fornecer uma plataforma simples, mas funcional, para gerenciamento de consultas médicas em um consultório. Através desta API, é possível realizar diversas operações, como agendar consultas, listar consultas, atualizar informações e remover consultas do sistema.
 <br></br>
