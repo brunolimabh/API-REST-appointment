@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctor\": {\n        \"id\": 2\n    }\n}",
+							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctorId\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -283,6 +283,24 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctor\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/doctors/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"crm\": \"2222\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
