@@ -66,15 +66,15 @@ public class AppointmentController {
     }
 
     @PatchMapping(AppointmentConstants.UPDATE_NAME_PATH)
-    public ResponseEntity<Boolean> updateName(
+    public ResponseEntity<Void> updateName(
             @PathVariable int id,
             @RequestParam String name){
         return ResponseEntity.ok().body(appointmentService.updateName(id, name));
     }
 
     @DeleteMapping(AppointmentConstants.REMOVE_PATH)
-    public ResponseEntity<Boolean> remove(
+    public ResponseEntity<Void> remove(
             @PathVariable int id){
-        return ResponseEntity.status(200).body(appointmentService.remove(id));
+        return ResponseEntity.ok().body(appointmentService.remove(id));
     }
 }

@@ -70,17 +70,17 @@ public class AppointmentService {
         return AppointmentMapper.toDto(entities);
     }
 
-    public boolean updateName(int id, String name){
+    public Void updateName(int id, String name){
         Optional<Appointment> entity = appointmentRepository.findById(id);
         if (entity.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         appointmentRepository.updateName(id, name);
-        return true;
+        return null;
     }
 
-    public boolean remove(int id){
+    public Void remove(int id){
         Optional<Appointment> entity = appointmentRepository.findById(id);
         if (entity.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         appointmentRepository.deleteById(id);
-        return true;
+        return null;
     }
 }
