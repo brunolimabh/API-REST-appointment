@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "5522db0e-086e-474f-8c94-576d572f94b1",
+		"name": "API Consultorio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33591770"
+	},
+	"item": [
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "Create Appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctor\": {\n        \"id\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments"
+					},
+					"response": []
+				},
+				{
+					"name": "List All Appointments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments"
+					},
+					"response": []
+				},
+				{
+					"name": "List Appointments By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments/1"
+					},
+					"response": []
+				},
+				{
+					"name": "List Appointments By Doctor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments/filter-doctor/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Avg Price Appointment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments/avg-price"
+					},
+					"response": []
+				},
+				{
+					"name": "Sum Price Appointment By Doctor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments/sum-price-doctor/1"
+					},
+					"response": []
+				},
+				{
+					"name": "List Appointments By Doctor And Date",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appointments/filter-date-doctor/1?dateInitial=2024-04-18&dateFinal=2024-04-20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments",
+								"filter-date-doctor",
+								"1"
+							],
+							"query": [
+								{
+									"key": "dateInitial",
+									"value": "2024-04-18"
+								},
+								{
+									"key": "dateFinal",
+									"value": "2024-04-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Name Appointment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appointments/1?name=alastra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "alastra"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Appointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Create Doctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dr Bruno\",\n    \"crm\": \"3412\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/doctors"
+					},
+					"response": []
+				},
+				{
+					"name": "List All Doctors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctor\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/doctors"
+					},
+					"response": []
+				},
+				{
+					"name": "List Doctor By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctor\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/doctors/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Exame de sangue\",\n    \"dateScheduled\": \"2024-05-20\",\n    \"price\": 150.0,\n    \"location\": \"Hospital Cruz Azul\",\n    \"doctor\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/doctors/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
