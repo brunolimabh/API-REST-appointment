@@ -21,31 +21,25 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DoctorService {
 
-    private static DoctorRepository doctorRepository;
-    private static AppointmentRepository appointmentRepository;
+    private final DoctorRepository doctorRepository;
+    private final AppointmentRepository appointmentRepository;
 
-    @Autowired
-    public DoctorService(DoctorRepository doctorRepository, AppointmentRepository appointmentRepository) {
-        this.doctorRepository = doctorRepository;
-        this.appointmentRepository = appointmentRepository;
-    }
-
-    public DoctorResponse create(DoctorRequest body){
+    public Doctor create(DoctorRequest body){
         Doctor entity = DoctorMapper.toEntity(body);
         Doctor saveEntity = doctorRepository.save(entity);
-        return DoctorMapper.toDto(saveEntity);
+        return saveEntity;
     }
 
-    public List<DoctorResponse> list(){
+    public List<Doctor> list(){
        List<Doctor> entities = doctorRepository.findAll();
        if (entities.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
-       return DoctorMapper.toDto(entities);
+       return entities;
     }
 
-    public DoctorResponse listById(int id){
+    public Doctor listById(int id){
         Optional<Doctor> entity = doctorRepository.findById(id);
         if (entity.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        return DoctorMapper.toDto(entity.get());
+        return entity.get();
     }
 
     public Void update(int id, DoctorRequestUpdate request){

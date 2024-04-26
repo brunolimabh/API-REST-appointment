@@ -1,12 +1,13 @@
 package school.sptech.projetoconsultorio.dto.doctor;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+import java.util.List;
+
+@Data
 public class DoctorResponse {
     private int id;
     private String name;
     private String crm;
+    private List<DoctorAppointmentResponse> appointments;
 }

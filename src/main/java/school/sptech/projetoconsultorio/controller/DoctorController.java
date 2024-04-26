@@ -4,14 +4,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import school.sptech.projetoconsultorio.constants.AppointmentConstants;
 import school.sptech.projetoconsultorio.constants.DoctorConstants;
+import school.sptech.projetoconsultorio.dto.doctor.DoctorMapper;
 import school.sptech.projetoconsultorio.dto.doctor.DoctorRequest;
 import school.sptech.projetoconsultorio.dto.doctor.DoctorRequestUpdate;
 import school.sptech.projetoconsultorio.dto.doctor.DoctorResponse;
-import school.sptech.projetoconsultorio.entity.Doctor;
-import school.sptech.projetoconsultorio.repository.AppointmentRepository;
-import school.sptech.projetoconsultorio.repository.DoctorRepository;
 import school.sptech.projetoconsultorio.service.DoctorService;
 
 import java.util.List;
@@ -21,25 +18,23 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DoctorController {
 
-    private final DoctorRepository doctorRepository = null;
-    private final AppointmentRepository appointmentRepository = null;
-    DoctorService doctorService = new DoctorService(doctorRepository,appointmentRepository);
+    private final DoctorService doctorService;
 
     @PostMapping
     public ResponseEntity<DoctorResponse> create(
             @Valid @RequestBody DoctorRequest body){
-        return ResponseEntity.created(null).body(doctorService.create(body));
+        return ResponseEntity.created(null).body(DoctorMapper.toDto(doctorService.create(body)));
     }
 
     @GetMapping
     public ResponseEntity<List<DoctorResponse>> list(){
-        return ResponseEntity.ok(doctorService.list());
+        return ResponseEntity.ok(DoctorMapper.toDto(doctorService.list()));
     }
 
     @GetMapping(DoctorConstants.LIST_BY_ID_PATH)
     public ResponseEntity<DoctorResponse> listById(
             @PathVariable int id){
-        return ResponseEntity.ok(doctorService.listById(id));
+        return ResponseEntity.ok(DoctorMapper.toDto(doctorService.listById(id)));
     }
 
     @PutMapping(DoctorConstants.UPDATE_NAME_PATH)

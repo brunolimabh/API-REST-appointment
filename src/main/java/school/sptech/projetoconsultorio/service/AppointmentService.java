@@ -1,13 +1,11 @@
 package school.sptech.projetoconsultorio.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import school.sptech.projetoconsultorio.dto.appointment.AppointmentMapper;
 import school.sptech.projetoconsultorio.dto.appointment.AppointmentRequest;
-import school.sptech.projetoconsultorio.dto.appointment.AppointmentResponse;
 import school.sptech.projetoconsultorio.entity.Appointment;
 import school.sptech.projetoconsultorio.entity.Doctor;
 import school.sptech.projetoconsultorio.repository.AppointmentRepository;
@@ -21,39 +19,33 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AppointmentService {
 
-    private static AppointmentRepository appointmentRepository;
-    private static DoctorRepository doctorRepository;
+    private final AppointmentRepository appointmentRepository;
+    private final DoctorRepository doctorRepository;
 
-    @Autowired
-    public AppointmentService(AppointmentRepository appointmentRepository, DoctorRepository doctorRepository) {
-        this.appointmentRepository = appointmentRepository;
-        this.doctorRepository = doctorRepository;
-    }
-
-    public AppointmentResponse create(AppointmentRequest body){
+    public Appointment create(AppointmentRequest body){
         Optional<Doctor> entityDoctor = doctorRepository.findById(body.getDoctorId());
         if (entityDoctor.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         Appointment entity = AppointmentMapper.toEntity(body, entityDoctor.get());
         Appointment saveEntity = appointmentRepository.save(entity);
-        return AppointmentMapper.toDto(saveEntity);
+        return saveEntity;
     }
 
-    public List<AppointmentResponse> list(){
+    public List<Appointment> list(){
        List<Appointment> entities = appointmentRepository.findAll();
        if (entities.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
-       return AppointmentMapper.toDto(entities);
+       return entities;
     }
 
-    public AppointmentResponse listById(int id){
+    public Appointment listById(int id){
         Optional<Appointment> entity = appointmentRepository.findById(id);
         if (entity.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
-        return AppointmentMapper.toDto(entity.get());
+        return entity.get();
     }
 
-    public List<AppointmentResponse> listByDoctor(int doctorId){
+    public List<Appointment> listByDoctor(int doctorId){
         List<Appointment> entities = appointmentRepository.findByDoctorId(doctorId);
         if (entities.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
-        return AppointmentMapper.toDto(entities);
+        return entities;
     }
 
     public double avgPrice(){
@@ -64,10 +56,10 @@ public class AppointmentService {
         return appointmentRepository.sumPriceByDoctor(doctorId);
     }
 
-    public List<AppointmentResponse> listByDoctorAndDate(int doctorId, LocalDate dateInicial, LocalDate dateFinal){
-        List<Appointment> entities = appointmentRepository.findByDoctorIdAndDateScheduledBetween(doctorId, dateInicial, dateInicial);
+    public List<Appointment> listByDoctorAndDate(int doctorId, LocalDate dateInicial, LocalDate dateFinal){
+        List<Appointment> entities = appointmentRepository.findByDoctorIdAndDateScheduledBetween(doctorId, dateInicial, dateFinal);
         if (entities.isEmpty()) throw new ResponseStatusException(HttpStatus.NO_CONTENT);
-        return AppointmentMapper.toDto(entities);
+        return entities;
     }
 
     public Void updateName(int id, String name){

@@ -1,15 +1,14 @@
-package school.sptech.projetoconsultorio.dto.appointment;
+package school.sptech.projetoconsultorio.dto.doctor;
 
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
-public class AppointmentResponse {
+public class DoctorAppointmentResponse {
     private int id;
     private String name;
     private LocalDate dateScheduled;
     private double price;
     private String location;
-    private AppointmentDoctorResponse doctor;
 }
